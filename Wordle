@@ -111,7 +111,7 @@ def main():
             if (ord(misplacedletter) >= 97) and (ord(misplacedletter) <= 122) and (misplacedletter not in given):
                 print('What is NOT the position of ' + misplacedletter + '?')
                 misplacedletterpos = input()
-                if misplacedletterpos == '':
+                if misplacedletterpos == '' or ord(misplacedletterpos) < 49 or ord(misplacedletterpos) > 53:
                     print('Enter a number')
                 else:
                     misplacedletterpos = int(misplacedletterpos)
