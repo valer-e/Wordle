@@ -16,11 +16,12 @@ def alloptions(given, misplaced, taken):
     alphabet = [[chr(a + 97) for a in range(26) if chr(a+97) not in taken] for five in range(5)]
     for g in given:
         alphabet[given[g]] = [g]
-    infoind += [misplaced[k] for k in misplaced]
+    infoind += [[l for l in misplaced[k]] for k in misplaced]
     infochr += [k for k in misplaced]
     for ind in range(len(infoind)):
-        if len(alphabet[infoind[ind]]) != 1:
-            alphabet[infoind[ind]] = [chr(a + 97) for a in range(26) if (chr(a+97) not in taken) and (chr(a+97) != infochr[ind])]
+        for indind in range(len(infoind[ind])):
+            if len(alphabet[infoind[ind][indind]]) != 1:
+                alphabet[infoind[ind][indind]] = [chr(a + 97) for a in range(26) if (chr(a+97) not in taken) and (chr(a+97) != infochr[ind][0])]
     for a1 in range(len(alphabet[0])):
         for a2 in range(len(alphabet[1])):
             for a3 in range(len(alphabet[2])):
@@ -43,7 +44,7 @@ def alloptions(given, misplaced, taken):
     if len(res) == 0:
         print('No possible answers fit this criteria')
         return len(res)
-    print(str(len(res)) + ' possibile answers.')
+    print(str(len(res)) + ' possible answers.')
     print(' ')
     return len(res)
 
@@ -110,13 +111,15 @@ def main():
         if len(misplacedletter) == 1:
             if (ord(misplacedletter) >= 97) and (ord(misplacedletter) <= 122) and (misplacedletter not in given):
                 print('What is NOT the position of ' + misplacedletter + '?')
+                if misplacedletter not in misplaced:
+                    misplaced[misplacedletter] = set()
                 misplacedletterpos = input()
                 if misplacedletterpos == '' or ord(misplacedletterpos) < 49 or ord(misplacedletterpos) > 53:
                     print('Enter a number')
                 else:
                     misplacedletterpos = int(misplacedletterpos)
-                    misplaced[misplacedletter] = misplacedletterpos - 1
-            elif (misplacedletter in given) or (misplacedletter in misplaced):
+                    misplaced[misplacedletter].add(misplacedletterpos - 1)
+            elif (misplacedletter in given):
                 print('That letter is already used as info, misclick? (Enter \'done\' if not)')
             else:
                 print('That is not a letter, misclick? (Enter \'done\' if not)')
@@ -147,6 +150,8 @@ def main():
             takencontinue = False
         else:
             print('That is not A letter, misclick? (Enter \'done\' if not)')
+    print(' ')
+    print('--------------------------------------------------')
     print('All info:')
     print('Taken letters: ' + str(taken))
     print('Given: ' + str(given))
@@ -178,7 +183,3 @@ startgame()
 main()
 while True:
     endgame()
-            
-
-
-
