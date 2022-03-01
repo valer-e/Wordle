@@ -90,7 +90,7 @@ def main():
         tempres += letter2
     print(tempres)
     if len(given) == 5:
-        print('?????? you gave all the correct letters')
+        print('You gave all of the correct letters')
         wtflist = ['','','','','']
         wtfres = ''
         for wtf in given:
@@ -128,7 +128,7 @@ def main():
     print('--------------------------------------------------')
     print(' ')
     if len(misplaced) + len(given) > 5:
-        print('wait bro you fucked up there are more correct letters than 5')
+        print('Among the info given, there are more correct letters than 5')
         return None
     print('Enter the taken letters (for example: \'a\')')
     print('--------------------------------------------------')
