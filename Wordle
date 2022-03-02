@@ -109,7 +109,7 @@ def main():
         misplacedletter = input()
         misplacedletter = misplacedletter.lower()
         if len(misplacedletter) == 1:
-            if (ord(misplacedletter) >= 97) and (ord(misplacedletter) <= 122) and (misplacedletter not in given):
+            if (ord(misplacedletter) >= 97) and (ord(misplacedletter) <= 122):
                 print('What is NOT the position of ' + misplacedletter + '?')
                 if misplacedletter not in misplaced:
                     misplaced[misplacedletter] = set()
@@ -119,8 +119,6 @@ def main():
                 else:
                     misplacedletterpos = int(misplacedletterpos)
                     misplaced[misplacedletter].add(misplacedletterpos - 1)
-            elif (misplacedletter in given):
-                print('That letter is already used as info, misclick? (Enter \'done\' if not)')
             else:
                 print('That is not a letter, misclick? (Enter \'done\' if not)')
         elif misplacedletter == 'done':
