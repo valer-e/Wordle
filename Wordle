@@ -118,7 +118,10 @@ def main():
                     print('Enter a number')
                 else:
                     misplacedletterpos = int(misplacedletterpos)
-                    misplaced[misplacedletter].add(misplacedletterpos - 1)
+                    if (misplacedletter in given) and (misplacedletterpos - 1 == given[misplacedletter]):
+                        print('That letter can not both be and not be in that spot, misclick?')
+                    else:
+                        misplaced[misplacedletter].add(misplacedletterpos - 1)
             else:
                 print('That is not a letter, misclick? (Enter \'done\' if not)')
         elif misplacedletter == 'done':
