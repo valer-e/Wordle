@@ -44,6 +44,9 @@ def alloptions(given, misplaced, taken):
     if len(res) == 0:
         print('No possible answers fit this criteria')
         return len(res)
+    elif len(res) == 1:
+        print('One possible answer')
+        return len(res)
     print(str(len(res)) + ' possible answers.')
     print(' ')
     return len(res)
