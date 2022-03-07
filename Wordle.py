@@ -42,10 +42,10 @@ def alloptions(given, misplaced, taken):
     print(' ')
     print('Iterated through ' + str(i) + ' 5 letter combinations.')
     if len(res) == 0:
-        print('No possible answers fit this criteria')
+        print('No possible answers fit this criteria.')
         return len(res)
     elif len(res) == 1:
-        print('One possible answer')
+        print('One possible answer.')
         return len(res)
     print(str(len(res)) + ' possible answers.')
     print(' ')
@@ -60,7 +60,7 @@ def main():
     misplaced = {}
     taken = set()
     while givencontinue:
-        print('Letter?')
+        print('Letter? (Enter \'done\' when finished)')
         givenletter = input()
         givenletter = givenletter.lower()
         if len(givenletter) == 1:
@@ -108,7 +108,7 @@ def main():
     print('Enter the misplaced letters (for example: \'a\') and then their position in the word (1 to 5)')
     print('--------------------------------------------------')
     while misplacedcontinue:
-        print('Letter?')
+        print('Letter? (Enter \'done\' when finished)')
         misplacedletter = input()
         misplacedletter = misplacedletter.lower()
         if len(misplacedletter) == 1:
@@ -142,7 +142,7 @@ def main():
     print('Enter the taken letters (for example: \'a\')')
     print('--------------------------------------------------')
     while takencontinue:
-        print('Letter?')
+        print('Letter? (Enter \'done\' when finished)')
         takenletter = input()
         takenletter = takenletter.lower()
         if len(takenletter) == 1:
