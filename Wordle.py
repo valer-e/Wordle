@@ -12,7 +12,7 @@ def alloptions(given, misplaced, taken):
     infoind = []
     infochr = []
     res = []
-    i= 0
+    i = 0
     alphabet = [[chr(a + 97) for a in range(26) if chr(a+97) not in taken] for five in range(5)]
     for g in given:
         alphabet[given[g]] = [g]
@@ -37,7 +37,7 @@ def alloptions(given, misplaced, taken):
                         if (word in wordliststr) and misplacedcheck(misplaced,word):
                             print(word)
                             res.append(word)
-                        word = ''        
+                        word = ''
     print('--------------------------------------------------')
     print(' ')
     print('Iterated through ' + str(i) + ' 5 letter combinations.')
@@ -167,14 +167,14 @@ def main():
     print('Information set, press enter to get possible answers')
     cont = input()
     alloptions(given, misplaced, taken)
-    
+
 
 def startgame():
     print('Press enter to start game')
     a = input()
     print('--------------------------------------------------')
     print(' ')
-    
+
 def endgame():
     print('--------------------------------------------------')
     print(' ')
